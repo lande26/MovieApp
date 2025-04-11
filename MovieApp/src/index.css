@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"); 
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #030014;
+}
+
+/* Custom base styles */
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #030014; /* fallback if bg-primary fails */
+  }
+  
+  h1 {
+    @apply mx-auto max-w-4xl text-center text-5xl font-bold leading-tight tracking-tight text-white sm:text-[64px] sm:leading-[76px];
+  }
+  
+  h2 {
+    @apply text-2xl font-bold text-white sm:text-3xl;
+  }
+  
+  main {
+    @apply min-h-screen relative;
+  }
+  
+  header {
+    @apply sm:mt-10 mt-5;
+  }
+  
+  header img {
+    @apply w-full max-w-lg h-auto object-contain mx-auto drop-shadow-md;
+  }
+}
+
+/* Custom component styles */
+@layer components {
+  .pattern {
+    @apply fixed inset-0;
+    background-image:
+      radial-gradient(circle at 25px 25px, rgba(255, 255, 255, 0.05) 2%, transparent 0%),
+      radial-gradient(circle at 75px 75px, rgba(255, 255, 255, 0.05) 2%, transparent 0%);
+    background-size: 100px 100px;
+    z-index: -1;
+  }
+  
+  .wrapper {
+    @apply px-5 py-12 xs:p-10 max-w-7xl mx-auto flex flex-col relative z-10;
+  }
+  
+  .trending {
+    @apply mt-6;
+    
+    & ul {
+      @apply flex flex-row overflow-x-auto gap-5 w-full pb-6 px-2;
+      scroll-behavior: smooth;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(139, 92, 246, 0.5) rgba(17, 24, 39, 0.2);
+    }
+    
+    & ul::-webkit-scrollbar {
+      @apply h-2;
+    }
+    
+    & ul::-webkit-scrollbar-track {
+      @apply bg-gray-800 rounded-full;
+    }
+    
+    & ul::-webkit-scrollbar-thumb {
+      @apply bg-purple-500 rounded-full;
+    }
+    
+    & ul li {
+      @apply min-w-[192px] flex flex-col items-start;
+    }
+  }
+  
+  .all-movies {
+    @apply space-y-6;
+  }
+}
+
+/* Custom utilities */
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600;
+  }
+  
+  @keyframes blob {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+    100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+  }
+  
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+  
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+}
