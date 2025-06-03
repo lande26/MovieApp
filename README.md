@@ -44,7 +44,7 @@ Ensure you have the following installed:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/movieapp.git
+   git clone https://github.com/lande26/movieapp.git
    cd movieapp
    ```
 
